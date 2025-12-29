@@ -1,0 +1,26 @@
+data_source:
+  type: csv
+  expected_frequency: ad_hoc
+  owner: business
+
+schema_assumptions:
+  primary_key: orderid
+  required_columns:
+    - orderid
+    - order_date
+    - amount_chf
+
+time_handling:
+  timezone: UTC
+  missing_dates_allowed: true
+
+financial_data:
+  currency: CHF
+  missing_amounts_allowed: true
+
+data_quality_policy:
+  missing_values:
+    severity: warning
+  duplicate_primary_keys:
+    severity: error
+    pipeline_behavior: stop
