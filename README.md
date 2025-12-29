@@ -69,9 +69,19 @@ Dieses Projekt verzichtet bewusst auf:
 
 Ziel ist eine Lösung, die verstanden, überprüft und langfristig gewartet werden kann.
 
+
 ## Zielgruppe
 
 Dieses Projekt richtet sich an:
 - kleine und mittlere Unternehmen
 - Verantwortliche für Finanzen, Operations oder IT (CFO, COO, IT-Leitung)
 - Organisationen, die Wert auf Nachvollziehbarkeit und Stabilität legen
+
+
+## How to run the pipeline
+
+Activate the environment and run the pipeline from the project root:
+
+```bash
+conda activate zyklop
+python -m src.pipeline

@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def standardize_column_names(df: pd.DataFrame) -> pd.DataFrame:
     """
     Standardize column names:
@@ -14,31 +15,35 @@ def standardize_column_names(df: pd.DataFrame) -> pd.DataFrame:
     )
     return df
 
-def parse_order_date(df: pd.DataFrame) -> pd.DataFrame:
+
+def parse_dates(df: pd.DataFrame) -> pd.DataFrame:
     """
     Parse order_date column into datetime.
     Invalid or ambiguous dates become NaT.
     """
     df = df.copy()
 
-    df["order_date"] = pd.to_datetime(
-        df["order_date"],
-        errors="coerce",
-        dayfirst=True
-    )
+    if "order_date" in df.columns:
+        df["order_date"] = pd.to_datetime(
+            df["order_date"],
+            errors="coerce",
+            dayfirst=True
+        )
 
     return df
 
-def parse_amount(df: pd.DataFrame) -> pd.DataFrame:
+
+def parse_amounts(df: pd.DataFrame) -> pd.DataFrame:
     """
     Parse amount_chf column into numeric.
     Invalid values become NaN.
     """
     df = df.copy()
 
-    df["amount_chf"] = pd.to_numeric(
-        df["amount_chf"],
-        errors="coerce"
-    )
+    if "amount_chf" in df.columns:
+        df["amount_chf"] = pd.to_numeric(
+            df["amount_chf"],
+            errors="coerce"
+        )
 
     return df
