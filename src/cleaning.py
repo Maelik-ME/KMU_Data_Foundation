@@ -28,3 +28,17 @@ def parse_order_date(df: pd.DataFrame) -> pd.DataFrame:
     )
 
     return df
+
+def parse_amount(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Parse amount_chf column into numeric.
+    Invalid values become NaN.
+    """
+    df = df.copy()
+
+    df["amount_chf"] = pd.to_numeric(
+        df["amount_chf"],
+        errors="coerce"
+    )
+
+    return df

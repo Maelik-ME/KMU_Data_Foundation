@@ -1,0 +1,20 @@
+sales_processed:
+  source: sales_raw.csv
+  description: Cleaned sales data with standardized columns
+  assumptions:
+    - Dates are interpreted with day-first format
+    - Invalid dates are set to null
+    - Missing or invalid amounts are set to null
+  known_issues:
+    - Duplicate order IDs exist in raw data
+  
+data_quality_checks:
+  missing_values:
+    severity: warning
+    affected_columns:
+      - amount_chf
+      - order_date
+  duplicates:
+    severity: error
+    affected_columns:
+      - orderid
