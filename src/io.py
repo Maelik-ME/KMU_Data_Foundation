@@ -1,9 +1,9 @@
 import pandas as pd
-from pathlib import Path
 
-def load_csv(path: Path) -> pd.DataFrame:
+
+def load_csv(path: str) -> pd.DataFrame:
     return pd.read_csv(path)
 
-def save_csv(df: pd.DataFrame, path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(path, index=False)
+
+def save_parquet(df: pd.DataFrame, path: str) -> None:
+    df.to_parquet(path, index=False)

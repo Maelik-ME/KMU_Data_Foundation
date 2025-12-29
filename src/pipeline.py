@@ -1,7 +1,7 @@
 import sys
 import logging
 
-from src.io import load_csv, save_csv
+from src.io import load_csv, save_parquet
 from src.cleaning import (
     standardize_column_names,
     parse_dates,
@@ -43,7 +43,7 @@ def run_pipeline() -> None:
             sys.exit(1)
 
         logger.info("Saving processed data")
-        save_csv(df, PROCESSED_PATH)
+        save_parquet(df, PROCESSED_PATH)
 
         logger.info("Pipeline completed successfully")
 

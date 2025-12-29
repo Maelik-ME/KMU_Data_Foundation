@@ -85,3 +85,8 @@ Activate the environment and run the pipeline from the project root:
 ```bash
 conda activate zyklop
 python -m src.pipeline
+
+### Exit codes
+
+- `0` – Pipeline completed successfully
+- `1` – Pipeline stopped due to data quality issues
